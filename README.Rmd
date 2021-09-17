@@ -27,12 +27,10 @@ str(df)
 
 ```{r}
 df_small = df %>%
-  select(c("STRUCTURE_NUMBER_008", "YEAR_BUILT_027", "BRIDGE_CONDITION", 
+  select(c("STRUCTURE_NUMBER_008", "YEAR_BUILT_027", "BRIDGE_CONDITION", # fips code ????
            "SERVICE_LEVEL_005C", "DIRECTION_005E", "COUNTY_CODE_003","DETOUR_KILOS_019", "TOLL_020", "TRAFFIC_LANES_ON_028A", 
            "TRAFFIC_LANES_UND_028B", "ADT_029", "DESIGN_LOAD_031", "DEGREES_SKEW_034", "HISTORY_037","STRUCTURE_LEN_MT_049",
            "TOTAL_IMP_COST_096", "YEAR_RECONSTRUCTED_106"))
-
-
 ```
 
 
@@ -53,6 +51,10 @@ df_small_1 %>%
   facet_wrap( ~ BRIDGE_CONDITION, scales = "free_y")+
   labs(x = "Year Built", y = "Count")+
   theme(legend.position = "none")
+```
+
+```{r}
+write.csv(df, "bridge_WI.csv")
 
 ```
 
